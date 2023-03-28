@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 
 /**
  *
- * @author javierrampob
+ * @author ericpaldor
  */
 public class Ejemplo1 {
 
@@ -21,9 +21,20 @@ public class Ejemplo1 {
         serializar(prod);
 
         Product prodDeserializado = deserializar();
-        System.out.println("Objeto deserializado: " + prodDeserializado);
+        System.out.println("Object deserialize: " + prodDeserializado);
     }
-
+ public static void serializar(Product prod) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("producto.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(prod);
+            out.close();
+            fileOut.close();
+            System.out.println("Serializating succesfully");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
     public static Product deserializar() {
         Product prod = null;
         try {
@@ -35,23 +46,9 @@ public class Ejemplo1 {
         } catch (IOException i) {
             i.printStackTrace();
         } catch (ClassNotFoundException c) {
-            System.out.println("La clase Product no ha sido encontrada.");
+            System.out.println("Product class not found.");
             c.printStackTrace();
         }
         return prod;
-    }
-
-//    ----------------------------------------
-    public static void serializar(Product prod) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream("producto.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(prod);
-            out.close();
-            fileOut.close();
-            System.out.println("Objeto serializado y almacenado en 'producto.ser'");
-        } catch (IOException i) {
-            i.printStackTrace();
-        }
     }
 }
