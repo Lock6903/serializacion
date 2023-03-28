@@ -1,6 +1,6 @@
-package com.ramos.serializacion.nativa;
+package com.palomar.serializacion.nativa;
 
-import com.ramos.serializacion.model.Product;
+import com.palomar.serializacion.model.Product;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class Ejemplo1 {
         serializar(prod);
 
         Product prodDeserializado = deserializar();
-        System.out.println("Object deserialize: " + prodDeserializado);
+        System.out.println("Object deserializeº: " + prodDeserializado);
     }
  public static void serializar(Product prod) {
         try {

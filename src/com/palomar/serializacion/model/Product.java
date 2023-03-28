@@ -1,4 +1,4 @@
-package com.ramos.serializacion.model;
+package com.palomar.serializacion.model;
 
 import java.io.Serial;
 import java.io.Serializable;
